@@ -1,78 +1,102 @@
 import * as C from "./styles";
 import { Item } from "../../types/Item";
-import {useState} from 'react';
-import {categories} from '../../data/categories';
+import { useState } from "react";
+import { categories } from "../../data/categories";
+import { Input, DatePicker, Select, Button } from "antd";
+import dayjs from "dayjs";
+import "dayjs/locale/pt-br";
+dayjs.locale("pt-br");
 
 type Props = {
   onAdd: (item: Item) => void;
 };
 
-// criar um state pra cada campo
-//passar o esstado como valor, on change 
-
-
 export const InputArea = ({ onAdd }: Props) => {
-  const [data, setData] = useState('');
-  const [category, setCategory] = useState('');
-  const [title, setTitle] = useState('');
-  const [value, setValue] = useState(0);
+  const [data, setData] = useState<string | null>(null);
+  const [category, setCategory] = useState("");
+  const [title, setTitle] = useState("");
+  const [value, setValue] = useState<number | undefined>(undefined);
+  const dateFormat = "DD/MM/YYYY";
 
-  let categoryKeys: string[] = Object.keys(categories);
+  const categoryOptions = Object.keys(categories).map((key) => ({
+    value: key,
+    label: categories[key].title,
+  }));
 
   const handleAddEvent = () => {
-
-    let newItem: Item = {
+    if (!data || !category || !title || value === undefined) {
+      alert("Por favor, preencha todos os campos.");
+      return;
+    }
+    
+    const newItem: Item = {
       date: new Date(data),
-      category: category,
-      title: title,
-      value: value,
+      category,
+      title,
+      value,
     };
-    console.log(newItem)
     onAdd(newItem);
     clearInput();
   };
 
   const clearInput = () => {
-    setData('');
-    setCategory('');
-    setTitle('');
-    setValue(0);
-  }
+    setData(null);
+    setCategory("");
+    setTitle("");
+    setValue(undefined);
+  };
 
   return (
     <C.Container>
-
       <C.InputLabel>
         <C.InputTitle>Data</C.InputTitle>
-        <C.Input type="date" value={data} onChange={e => setData(e.target.value)}></C.Input>
+        <DatePicker
+         style={{ width: 150 }}
+          format={dateFormat}
+          onChange={(date: any, dateString: any) => setData(date)}
+         
+        />
       </C.InputLabel>
 
       <C.InputLabel>
         <C.InputTitle>Categoria</C.InputTitle>
-        <C.Select value={category} onChange={e => setCategory(e.target.value)}>
-            <option>Categoria:</option>
-           {categoryKeys.map((key, index) =>(
-            <option key={index} value={key}> {categories[key].title}</option>
-        ))}
-        
-         </C.Select>
+        <Select
+          style={{ width: 150 }}
+          options={categoryOptions}
+          onChange={(value) => setCategory(value)}
+          value={category}
+          placeholder="Selecione uma categoria"
+        />
       </C.InputLabel>
 
       <C.InputLabel>
         <C.InputTitle>Título</C.InputTitle>
-        <C.Input type="text" value={title} onChange={e => setTitle(e.target.value)} ></C.Input>
+        <Input
+         style={{ width: 150 }}
+          type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          placeholder="Digite o título"
+        />
       </C.InputLabel>
 
       <C.InputLabel>
         <C.InputTitle>Valor</C.InputTitle>
-        <C.Input type="number"  value={value} onChange={e => setValue(parseFloat(e.target.value))}></C.Input>
+        <Input
+         style={{ width: 150 }}
+          type="number"
+          value={value}
+          onChange={(e) => setValue(parseFloat(e.target.value))}
+          placeholder="Digite o valor"
+        />
       </C.InputLabel>
 
       <C.InputLabel>
         <C.InputTitle>&nbsp;</C.InputTitle>
-        <C.Button onClick={handleAddEvent}>Adicionar</C.Button>
+        <Button  style={{ width: 150 }} type="primary" onClick={handleAddEvent}>
+          Adicionar
+        </Button>
       </C.InputLabel>
-
     </C.Container>
   );
 };

@@ -3,10 +3,11 @@ import { Item } from '../../types/Item';
 import { TableItem } from '../TableItem';
 
 type Props = {
-    list: Item[]
+    list: Item[],
+    onRemoveItem: (index: number) => void
 }
 
-export const TableArea = ({ list }: Props) => {
+export const TableArea = ({ list, onRemoveItem }: Props) => {
     
     return (
         <C.Table>
@@ -20,7 +21,7 @@ export const TableArea = ({ list }: Props) => {
             </thead>
             <tbody>
                 {list.map((item, index)=>(
-                    <TableItem key={index} item={item} />
+                    <TableItem key={index} item={item} onRemove={() => onRemoveItem(index)} />
                 ))}
             </tbody>
         </C.Table>

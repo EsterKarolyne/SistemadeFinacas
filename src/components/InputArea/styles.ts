@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  background-color: #fff;
+  background-color: #00172A;
+  color:#C2E0FD;
   box-shadow: 0px 0px 5px #ccc;
   border-radius: 10px;
   padding: 20px;
@@ -11,29 +12,13 @@ export const Container = styled.div`
 `;
 
 export const InputLabel = styled.label`
-  margin: 0 10px 0 10px;
+  margin: 0 5px 0 5px;
   flex: 1;
 `;
 
 export const InputTitle = styled.div`
   font-weight: bold;
   margin-bottom: 5px;
-`;
-
-export const Input = styled.input`
-  width: 100%;
-  height: 30px;
-  padding: 0 5px;
-  border: 1px solid lightblue;
-  border-radius: 5px;
-`;
-
-export const Select = styled.select`
-  width: 100%;
-  height: 30px;
-  padding: 0 5px;
-  border: 1px solid lightblue;
-  border-radius: 5px;
 `;
 
 export const Button = styled.button`
@@ -45,8 +30,12 @@ export const Button = styled.button`
   background-color: lightblue;
   color: black;
   cursor: pointer;
+  font-weight: 700;
+  
   &:hover {
     background-color: blue;
     color: white;
+     background-color: #00172A;
+  color:#C2E0FD;
   }
 `;

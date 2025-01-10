@@ -6,7 +6,7 @@ export const Container = styled.div`
 `;
 
 export const Header = styled.div`
-    background-color:purple;
+    background-color:#003F7D;
     height:150px;
     text-align:center;
 
@@ -24,7 +24,4 @@ export const HeaderText = styled.h1`
 export const Body = styled.div`
     margin: auto;
     max-width:980px;
-    
-
-
 `;
