@@ -53,7 +53,7 @@ export const InputArea = ({ onAdd }: Props) => {
         <DatePicker
          style={{ width: 150 }}
           format={dateFormat}
-          onChange={(date: any, dateString: any) => setData(date)}
+          onChange={(date: any) => setData(date)}
          
         />
       </C.InputLabel>

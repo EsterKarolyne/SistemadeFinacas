@@ -66,7 +66,8 @@ const App = () => {
   return (
     <C.Container>
       <C.Header>
-        <C.HeaderText>Sistema Financeiro</C.HeaderText>
+        <C.HeaderText>Dinheiro à Vista</C.HeaderText>
+        <C.SubTitle>#Faça um rápido cálculo das suas finanças</C.SubTitle>
       </C.Header>
       <C.Body>
         <InfoArea
