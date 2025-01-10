@@ -24,4 +24,5 @@ export const HeaderText = styled.h1`
 export const Body = styled.div`
     margin: auto;
     max-width:980px;
+    margin-bottom:60px;
 `;

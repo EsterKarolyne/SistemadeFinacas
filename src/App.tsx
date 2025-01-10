@@ -7,13 +7,12 @@ import { getCurrentMonth, filterListByMonth } from "./helpers/dateFilter";
 import { TableArea } from "./components/TableArea";
 import { InfoArea } from "./components/InfoArea";
 import { InputArea } from "./components/InputArea";
-
+import Example from "./components/Chart";
 const App = () => {
   const [list, setList] = useState<Item[]>(() => {
     const savedList = localStorage.getItem("financeAppList");
     const parsedList = savedList ? JSON.parse(savedList) : items;
 
-    // Garantir que o campo `date` seja um objeto Date
     return parsedList.map((item: Item) => ({
       ...item,
       date: new Date(item.date),
@@ -53,7 +52,7 @@ const App = () => {
   };
 
   const handleAddItem = (item: Item) => {
-    const newItem = { ...item, date: new Date(item.date) }; // Garantir que o `date` é um objeto Date
+    const newItem = { ...item, date: new Date(item.date) };
     let newList = [...list];
     newList.push(newItem);
     setList(newList);
@@ -81,6 +80,7 @@ const App = () => {
 
         <TableArea list={filteredList} onRemoveItem={handleRemoveItem} />
       </C.Body>
+      <Example filteredList={filteredList} income={income} expanse={expanse}/>
     </C.Container>
   );
 };
