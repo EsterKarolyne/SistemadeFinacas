@@ -13,8 +13,8 @@ type Props = {
 
 export const InputArea = ({ onAdd }: Props) => {
   const [data, setData] = useState<string | null>(null);
-  const [category, setCategory] = useState("");
-  const [title, setTitle] = useState("");
+  const [category, setCategory] = useState<string | undefined>(undefined);
+  const [title, setTitle] = useState<string>("");
   const [value, setValue] = useState<number | undefined>(undefined);
   const dateFormat = "DD/MM/YYYY";
 
@@ -41,8 +41,8 @@ export const InputArea = ({ onAdd }: Props) => {
 
   const clearInput = () => {
     setData(null);
-    setCategory("");
-    setTitle("");
+    setCategory(undefined);
+    setTitle('');
     setValue(undefined);
   };
 
@@ -54,7 +54,7 @@ export const InputArea = ({ onAdd }: Props) => {
          style={{ width: 150 }}
           format={dateFormat}
           onChange={(date: any) => setData(date)}
-         
+          value={data}
         />
       </C.InputLabel>
 
@@ -62,9 +62,9 @@ export const InputArea = ({ onAdd }: Props) => {
         <C.InputTitle>Categoria</C.InputTitle>
         <Select
           style={{ width: 150 }}
+          value={category}
           options={categoryOptions}
           onChange={(value) => setCategory(value)}
-          value={category}
           placeholder="Selecione uma categoria"
         />
       </C.InputLabel>
