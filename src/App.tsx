@@ -7,7 +7,7 @@ import { getCurrentMonth, filterListByMonth } from "./helpers/dateFilter";
 import { TableArea } from "./components/TableArea";
 import { InfoArea } from "./components/InfoArea";
 import { InputArea } from "./components/InputArea";
-import Example from "./components/Chart";
+import Chart from "./components/Chart";
 const App = () => {
   const [list, setList] = useState<Item[]>(() => {
     const savedList = localStorage.getItem("financeAppList");
@@ -81,7 +81,7 @@ const App = () => {
 
         <TableArea list={filteredList} onRemoveItem={handleRemoveItem} />
       </C.Body>
-      <Example filteredList={filteredList} income={income} expanse={expanse}/>
+      <Chart filteredList={filteredList} fullList={list} income={income} expanse={expanse}/>
     </C.Container>
   );
 };

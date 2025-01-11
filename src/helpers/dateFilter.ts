@@ -57,3 +57,24 @@ export const formatCurrentMonth = (currentMonth: string): string => {
   return `
     ${months[parseInt(month) - 1]} de ${year}`;
 };
+
+export const getYearlyData = (list:any, categories: any) => {
+  
+  let monthlyData = Array.from({ length: 12 }, () => ({ expanse: 0, income: 0 }));
+
+  
+  list.forEach((item: any) => {
+    const month = item.date.getMonth();
+    if (categories[item.category].expense) {
+      monthlyData[month].expanse += item.value;
+    } else {
+      monthlyData[month].income += item.value;
+    }
+  });
+
+  return monthlyData.map((data, index) => ({
+    month: new Date(0, index).toLocaleString('default', { month: 'long' }), 
+    expanse: data.expanse,
+    income: data.income,
+  }));
+};
