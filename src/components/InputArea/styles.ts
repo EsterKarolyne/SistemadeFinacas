@@ -15,6 +15,10 @@ export const Container = styled.div`
 export const InputLabel = styled.label`
   margin: 0 5px 0 5px;
   flex: 1;
+
+  @media (max-width: 600px) {
+    font-size:14px;
+  }
 `;
 
 export const InputTitle = styled.div`

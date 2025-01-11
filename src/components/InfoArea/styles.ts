@@ -9,6 +9,10 @@ margin-top: -40px;
 display:flex;
 align-items:center;
 color:#C2E0FD;
+
+@media (max-width: 600px) {
+    font-size:14px;
+  }
 `
 
 export const MonthArea = styled.div`
@@ -24,6 +28,10 @@ text-align:center;
 font-size:25px;
 cursor:pointer;
 color:#C2E0FD;
+
+@media (max-width: 600px) {
+    font-size:14px;
+  }
 ` 
 
 export const MonthTitle = styled.div`

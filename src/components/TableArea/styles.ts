@@ -8,10 +8,20 @@ export const Table = styled.table`
   border-radius: 10px;
   margin-top: 20px;
   color:#C2E0FD;
+
+  @media (max-width: 600px) {
+    font-size:14px;
+    padding: 20px;
+  }
 `;
 
 export const TableHeadColumn = styled.th<{ width?: number }>`
   width: ${(props) => (props.width ? `${props.width}px` : "auto")};
   padding: 10px 0;
   text-align: left;
+
+  @media (max-width: 600px) {
+    font-size:14px;
+    padding: 10px;
+  }
 `;

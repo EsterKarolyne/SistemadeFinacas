@@ -16,6 +16,10 @@ export const Category = styled.div<{ color: string }>`
   color: #fff;
   background-color: ${(props) => props.color};
   font-weight: 700;
+
+  @media (max-width: 600px) {
+    font-size:14px;
+  }
 `;
 export const Button = styled.button<{}>`
   padding: 5px 10px;
@@ -28,6 +32,10 @@ export const Button = styled.button<{}>`
   position: absolute;
   top: 0;
   right: 0;
+
+  @media (max-width: 600px) {
+    font-size:14px;
+  }
 `;
 
 export const Image = styled.img<{}>`

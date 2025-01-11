@@ -24,7 +24,7 @@ export const InputArea = ({ onAdd }: Props) => {
   }));
 
   const handleAddEvent = () => {
-    if (!data || !category || !title || value === undefined) {
+    if (!data || !category  || value === undefined) {
       alert("Por favor, preencha todos os campos.");
       return;
     }
