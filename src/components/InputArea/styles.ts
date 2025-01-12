@@ -10,6 +10,10 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+ @media (max-width: 600px) {
+    padding: 8px;
+  }
+  
 `;
 
 export const InputLabel = styled.label`

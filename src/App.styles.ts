@@ -18,13 +18,18 @@ export const HeaderText = styled.h1`
     color:#FFF;
     padding-top:30px;
 
-
 `;
 
 export const Body = styled.div`
     margin: auto;
     max-width:980px;
     margin-bottom:60px;
+
+    @media (max-width: 600px) {
+   margin-bottom:10px;
+   margin-left:10px;
+   margin-right:10px
+  }
 `;
 
 export const SubTitle = styled.div`

@@ -12,6 +12,7 @@ color:#C2E0FD;
 
 @media (max-width: 600px) {
     font-size:14px;
+    padding:10px;
   }
 `
 

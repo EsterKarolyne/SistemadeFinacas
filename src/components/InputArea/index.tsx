@@ -55,6 +55,7 @@ export const InputArea = ({ onAdd }: Props) => {
           format={dateFormat}
           onChange={(date: any) => setData(date)}
           value={data}
+          placeholder="data/mês"
         />
       </C.InputLabel>
 
