@@ -8,6 +8,7 @@ import { TableArea } from "./components/TableArea";
 import { InfoArea } from "./components/InfoArea";
 import { InputArea } from "./components/InputArea";
 import Chart from "./components/Chart";
+import TourComponent from "./components/Tour";
 const App = () => {
   const [list, setList] = useState<Item[]>(() => {
     const savedList = localStorage.getItem("financeAppList");
@@ -68,20 +69,32 @@ const App = () => {
       <C.Header>
         <C.HeaderText>Dinheiro à Vista</C.HeaderText>
         <C.SubTitle>#Faça um rápido cálculo das suas finanças</C.SubTitle>
+        <TourComponent />
       </C.Header>
       <C.Body>
-        <InfoArea
-          currentMonth={currentMonth}
-          onMonthChange={handleMonthChange}
+        <div id="teste">
+          <InfoArea
+            currentMonth={currentMonth}
+            onMonthChange={handleMonthChange}
+            income={income}
+            expanse={expanse}
+          />
+        </div>
+        <div>
+          <InputArea onAdd={handleAddItem} />
+        </div>
+        <div>
+          <TableArea list={filteredList} onRemoveItem={handleRemoveItem} />
+        </div>
+      </C.Body>
+      <div id="chart">
+        <Chart
+          filteredList={filteredList}
+          fullList={list}
           income={income}
           expanse={expanse}
-        ></InfoArea>
-
-        <InputArea onAdd={handleAddItem}></InputArea>
-
-        <TableArea list={filteredList} onRemoveItem={handleRemoveItem} />
-      </C.Body>
-      <Chart filteredList={filteredList} fullList={list} income={income} expanse={expanse}/>
+        />
+      </div>
     </C.Container>
   );
 };

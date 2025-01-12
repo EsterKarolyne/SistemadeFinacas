@@ -4,13 +4,13 @@ import { TableItem } from '../TableItem';
 
 type Props = {
     list: Item[],
-    onRemoveItem: (index: number) => void
+    onRemoveItem: (index: number) => void,
 }
 
 export const TableArea = ({ list, onRemoveItem }: Props) => {
     
     return (
-        <C.Table>
+        <C.Table id="table-area">
             <thead>
                 <tr>
                     <C.TableHeadColumn width={100}>Data</C.TableHeadColumn>

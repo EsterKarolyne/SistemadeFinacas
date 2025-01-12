@@ -47,7 +47,7 @@ export const InputArea = ({ onAdd }: Props) => {
   };
 
   return (
-    <C.Container>
+    <C.Container id="input-area">
       <C.InputLabel>
         <C.InputTitle>Data</C.InputTitle>
         <DatePicker
